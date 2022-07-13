@@ -1,7 +1,5 @@
-// SPDX-License-Identifier: UNLICENSED
+// SPDX-License-Identifier: MIT
 pragma solidity ^0.8.9;
-
-import "hardhat/console.sol";
 
 contract Vault {
     uint public unlockTime;
@@ -25,7 +23,6 @@ contract Vault {
     }
 
     function withdraw() public {
-        console.log("Unlock time is %o and block timestamp is %o", unlockTime, block.timestamp);
 
         require(block.timestamp >= unlockTime, "You can't withdraw yet");
         require(msg.sender == owner, "you aren't the owner");

@@ -10,12 +10,12 @@ npx hardhat unlocktimer --set <minutes>
 Returns timestamp to set the unlock timer for the Vault contract.
 
 ## Scripts:
-**Deploy Factory:**
+### Deploy Factory:
 ***Note: Must be deployed at the same nonce accross networks.***
 npx hardhat run scripts/deployFactory.js --network <network>
 
 ### Deploy Vault:
-***Note: Before deploying change the owner address in the contract to your own wallet.***
+***Note: Before deploying change the owner address in the contract to your own wallet.***/n
 ***Ensure you set the correct factory address and unlock time in the script file***
 ***Do NOT set the owner to msg.sender as the deployment factory address is msg.sender***
 npx hardhat run scripts/vaultDeploy.js -- network <network> 

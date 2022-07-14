@@ -23,14 +23,14 @@ task("account", "returns nonce and balance for specified address on multiple net
 
     const networkIDArr = ["Ethereum Goerli:", "Polygon  Mumbai:", "Arbitrum Rinkby:", "Optimism Goerli:"]
     const providerArr = [web3Goerli, web3Mumbai, web3Arb, web3Opt];
-    const nonceArr = [];
+    const resultArr = [];
     for (let i = 0; i < providerArr.length; i++) {
       const nonce = await providerArr[i].eth.getTransactionCount(address.address, "latest");
       const balance = await providerArr[i].eth.getBalance(address.address)
-      nonceArr.push([networkIDArr[i], nonce, parseFloat(providerArr[i].utils.fromWei(balance, "ether")).toFixed(2) + "ETH"]);
+      resultArr.push([networkIDArr[i], nonce, parseFloat(providerArr[i].utils.fromWei(balance, "ether")).toFixed(2) + "ETH"]);
     }
-    nonceArr.unshift(["  |NETWORK|   |NONCE|   |BALANCE|  "])
-    console.log(nonceArr);
+    resultArr.unshift(["  |NETWORK|   |NONCE|   |BALANCE|  "])
+    console.log(resultArr);
   });
 
 module.exports = {

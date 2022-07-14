@@ -5,14 +5,6 @@ const { task } = require("hardhat/config");
 const { createAlchemyWeb3 } = require("@alch/alchemy-web3");
 
 /** @type import('hardhat/config').HardhatUserConfig */
-const {
-  API_URL_GOERLI,
-  API_URL_MUMBAI,
-  API_URL_ARBITRUM,
-  API_URL_OPTIMISM,
-  PRIVATE_KEY,
-  PRIVATE_KEY_ONE_TIME_SIGNER,
-} = process.env;
 
 const web3Goerli = createAlchemyWeb3(API_URL_GOERLI);
 const webMumbai = createAlchemyWeb3(API_URL_MUMBAI);

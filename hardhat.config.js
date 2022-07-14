@@ -5,11 +5,6 @@ const { task } = require("hardhat/config");
 const { createAlchemyWeb3 } = require("@alch/alchemy-web3");
 
 /** @type import('hardhat/config').HardhatUserConfig */
-const web3Goerli = createAlchemyWeb3(API_URL_GOERLI);
-const webMumbai = createAlchemyWeb3(API_URL_MUMBAI);
-const web3Arb = createAlchemyWeb3(API_URL_ARBITRUM);
-const web3Opt = createAlchemyWeb3(API_URL_OPTIMISM);
-
 task("unlocktimer", "returns unlock time")
   .addParam("set", "adds specifed minutes to unlock time")
   .setAction(minutes => {
@@ -21,8 +16,13 @@ task("unlocktimer", "returns unlock time")
 task("account", "returns nonce and balance for specified address on multiple networks")
   .addParam("address")
   .setAction(async address => {
+    const web3Goerli = createAlchemyWeb3(API_URL_GOERLI);
+    const web3Mumbai = createAlchemyWeb3(API_URL_MUMBAI);
+    const web3Arb = createAlchemyWeb3(API_URL_ARBITRUM);
+    const web3Opt = createAlchemyWeb3(API_URL_OPTIMISM);
+
     const networkIDArr = ["Ethereum Goerli:", "Polygon  Mumbai:", "Arbitrum Rinkby:", "Optimism Goerli:"]
-    const providerArr = [web3Goerli, webMumbai, web3Arb, web3Opt];
+    const providerArr = [web3Goerli, web3Mumbai, web3Arb, web3Opt];
     const nonceArr = [];
     for (let i = 0; i < providerArr.length; i++) {
       const nonce = await providerArr[i].eth.getTransactionCount(address.address, "latest");

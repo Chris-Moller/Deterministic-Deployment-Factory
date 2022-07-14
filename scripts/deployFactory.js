@@ -1,4 +1,4 @@
-async function main() {
+const main = async () => {
   const Factory = await ethers.getContractFactory("DeterministicDeployFactory");
   const factory = await Factory.deploy();
   await factory.deployed();

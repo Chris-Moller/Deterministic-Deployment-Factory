@@ -3,7 +3,8 @@ const deposit = async () => {
   console.log("Depositing", depositAmount / 10 ** 18 + "ETH...");
   
   const Vault = await ethers.getContractFactory("Vault");
-  const vaultContract = await Vault.attach("0xREPLACE_ADDRESS"); //Replace this with your Vault create2 address
+  const vaultAddress = "0xREPLACE_ADDRESS" //Replace this with your Vault create2 address
+  const vaultContract = await Vault.attach(vaultAddress); 
 
   const sendEther = await vaultContract.deposit({ value: depositAmount });
   const depositTxReciept = await sendEther.wait();

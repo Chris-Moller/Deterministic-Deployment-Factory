@@ -5,7 +5,6 @@ const { task } = require("hardhat/config");
 const { createAlchemyWeb3 } = require("@alch/alchemy-web3");
 
 /** @type import('hardhat/config').HardhatUserConfig */
-
 const web3Goerli = createAlchemyWeb3(API_URL_GOERLI);
 const webMumbai = createAlchemyWeb3(API_URL_MUMBAI);
 const web3Arb = createAlchemyWeb3(API_URL_ARBITRUM);

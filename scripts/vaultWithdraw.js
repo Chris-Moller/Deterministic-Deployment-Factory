@@ -1,5 +1,5 @@
 const withdraw = async () => {
-  const vaultAddress = "0xf523a8A117297ADEdE36379656910BcD248383b6"; //***Change address to your deployed vault contract address***
+  const vaultAddress = "0xREPLACE_ADDRESS"; //***Change address to your deployed vault contract address***
   
   const Vault = await ethers.getContractFactory("Vault");
   const vault = await Vault.attach(vaultAddress);
